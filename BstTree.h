@@ -14,7 +14,7 @@ class BstTree{
         ~BstTree();
         int bstInsert(string word);
         bool bstSearch(string word) const;
-        bool bstDelete(string word);
+        void bstDelete(string word);
         void bstRangeSearch(string word1, string word2);
 
     private:
@@ -26,9 +26,11 @@ class BstTree{
                };
         Node* root;
         int insert(string word, Node* n);
+        Node* findMin(Node* n);
+        Node* removeNode(Node* root, string word);
         void clear(Node* n);
         Node* getNodeFor(string value, Node* n) const;
-        Node* getPredecessorNode(string word) const;
+        // Node* getPredecessorNode(string word) const;
         void printRange(Node* root, string w1, string w2);
 };
 

@@ -15,19 +15,19 @@ class HashProgram {
         }
 
         size_t insertHash(string word);
-        void deleteHash(string word);
-        void searchHash(string word);
+        int deleteHash(string word);
+        size_t searchHash(string word);
         void rangeSearch(string word1, string word2);
 
 
     private:
         int curr_size;
         const static size_t TABLESIZE = 10000;
-        const static size_t PRIME = 9973;
-        pair<string,size_t> table[TABLESIZE];
-        size_t hash1(string& word);
-        size_t hash2(string& word);
-
+        // const static size_t PRIME = 9973;
+        vector<pair<string,int> >table[TABLESIZE];
+        // size_t hash1(string& word);
+        // size_t hash2(string& word);
+        size_t hash(string word) const;
 };
 
 #endif

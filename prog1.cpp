@@ -3,6 +3,7 @@
 #include <string>
 #include <iterator>
 #include <sstream>
+#include <fstream>
 #include "HashProgram.h"
 #include "BstTree.h"
 using namespace std;
@@ -14,6 +15,13 @@ int main(int argc, char* argv[]){
     }
     HashProgram a;
     BstTree b;
+    ifstream file("PA1_dataset.txt");
+    string str; 
+    while (file >> str){cout<<"what";
+        a.insertHash(str);
+        b.bstInsert(str);
+    }
+   
     string info = argv[1]; 
     // stringstream ss(info); 
     string delimiter = ", ";
@@ -42,8 +50,10 @@ int main(int argc, char* argv[]){
             a.searchHash(subwords[1]);
             b.bstSearch(subwords[1]);
         }else if (subwords[0] == "insert"){
-            a.insertHash(subwords[1]);
-            b.bstInsert(subwords[1]);
+            int hashInsertCount = a.insertHash(subwords[1]);
+            cout<<subwords[1]<<" inserted, new count = "<<hashInsertCount<<endl;
+            int bstInsertCount = b.bstInsert(subwords[1]);
+            cout<<subwords[1]<<" inserted, new count = "<<bstInsertCount<<endl;
         }else if (subwords[0] == "delete"){
             a.deleteHash(subwords[1]);
             b.bstDelete(subwords[1]);

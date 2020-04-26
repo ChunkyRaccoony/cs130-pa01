@@ -5,7 +5,7 @@ CXXFLAGS = -std=c++11 -Wall -Wextra -Wno-unused-parameter -Wno-unused-private-fi
 
 
 prog1: prog1.cpp HashProgram.cpp BstTree.cpp
-	${CXX} $^ -o prog1.out
+	${CXX} $^ -o prog1
 
 clean:
-	rm prog1.out
+	rm prog1
